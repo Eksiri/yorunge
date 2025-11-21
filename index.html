@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Orbit - Farcaster Miniapp</title>
+    
+    <!-- GÜNCELLENEN KISIM: Farcaster Hosted Manifest Linki -->
+    <link rel="manifest" href="/.well-known/farcaster.json">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -261,11 +265,11 @@
                 // Update Buttons
                 scanBtn.innerText = "Rescan Orbit";
                 scanBtn.disabled = false;
-                scanBtn.style.background = "#334155"; // Neutral color for rescan
+                scanBtn.style.background = "#334155"; 
                 scanBtn.style.boxShadow = "none";
-                shareBtn.style.display = "block"; // Show share button
+                shareBtn.style.display = "block"; 
 
-            }, 1000); // 1s delay for effect
+            }, 1000); 
         }
 
         function shareVibe() {
@@ -286,13 +290,9 @@
             }
         }
 
-        // CRITICAL FIX: Call sdk.actions.ready() to remove splash screen
         window.onload = async () => {
-            // Ensure the SDK is available
             if (window.farcaster) {
                 try {
-                    // Initialize if needed (depending on SDK version)
-                    // Then call ready() to dismiss splash screen
                     await window.farcaster.actions.ready();
                     console.log("Farcaster Frame Ready signal sent.");
                 } catch (error) {
