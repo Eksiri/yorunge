@@ -1,17 +1,17 @@
 {
   "frame": {
     "name": "Daily Orbit",
-    "version": "1",
-    "iconUrl": "https://imgur.com/a/BsjohJT",
     "homeUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app",
+    "iconUrl": "https://imgur.com/a/BsjohJT",
+    "version": "1",
     "imageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/image.png",
-    "splashImageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/splash.png",
-    "splashBackgroundColor": "#4B0082",
-    "webhookUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
     "subtitle": "Daily Orbit",
+    "webhookUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
     "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
+    "heroImageUrl": "https://imgur.com/a/BsjohJT",
+    "splashImageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/splash.png",
     "primaryCategory": "utility",
-    "heroImageUrl": "https://imgur.com/a/BsjohJT"
+    "splashBackgroundColor": "#4B0082"
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
