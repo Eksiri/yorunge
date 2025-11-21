@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Orbit - Farcaster Miniapp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #8b5cf6;
+            --text: #f8fafc;
+            --secondary: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #c084fc, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        /* Kart Tasarımı */
+        .orbit-card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emoji-display {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .vibe-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .vibe-desc {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Butonlar */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            display: none; /* Başlangıçta gizli */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Daily Orbit</h1>
+        <p class="subtitle">Bugünkü Farcaster enerjini keşfet.</p>
+
+        <div class="orbit-card" id="cardArea">
+            <div id="initialState">
+                <span style="font-size: 3rem;">🪐</span>
+                <p>Yörünge taranıyor...</p>
+            </div>
+            
+            <div id="resultState" class="hidden">
+                <div class="emoji-display" id="resultEmoji">🚀</div>
+                <div class="vibe-title" id="resultTitle">Builder Mode</div>
+                <p class="vibe-desc" id="resultDesc">Bugün üretme günü. Kod yaz, çizim yap veya yeni bir fikir paylaş.</p>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="scanBtn" onclick="scanVibe()">Yörüngeyi Tara</button>
+        <button class="btn btn-secondary" id="shareBtn" onclick="shareVibe()">Warpcast'te Paylaş</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@farcaster/frame-sdk/dist/index.min.js"></script>
+
+    <script>
+        // Veri Seti: Farklı modlar ve metinler
+        const vibes = [
+            { title: "Builder Mode", emoji: "🏗️", desc: "Bugün sadece inşa et. Gürültüyü sustur, koduna odaklan." },
+            { title: "Degen Energy", emoji: "🔥", desc: "Yüksek risk, yüksek ödül. Bugün cesur hamleler günü." },
+            { title: "Zen Master", emoji: "🍵", desc: "Kaostan uzak dur. Sadece kaliteli içerik tüket ve sakince üret." },
+            { title: "Networker", emoji: "🤝", desc: "Bağlantı kurma günü. Yeni insanları takip et ve GM de." },
+            { title: "Scholar", emoji: "📚", desc: "Öğrenme modundasın. Uzun bir makale oku ve özetini paylaş." },
+            { title: "Artist", emoji: "🎨", desc: "Yaratıcılığın zirvede. Frame tasarla veya bir meme yap." },
+            { title: "Void Gazer", emoji: "🌑", desc: "Derin düşünceler. Sadece felsefi cast'ler at." }
+        ];
+
+        let currentVibe = null;
+
+        function scanVibe() {
+            const cardArea = document.getElementById('cardArea');
+            const initialState = document.getElementById('initialState');
+            const resultState = document.getElementById('resultState');
+            const scanBtn = document.getElementById('scanBtn');
+            const shareBtn = document.getElementById('shareBtn');
+
+            // Basit bir yükleniyor efekti
+            scanBtn.innerText = "Hesaplanıyor...";
+            scanBtn.disabled = true;
+
+            setTimeout(() => {
+                // Rastgele seçim yap
+                const randomIndex = Math.floor(Math.random() * vibes.length);
+                currentVibe = vibes[randomIndex];
+
+                // UI güncelle
+                document.getElementById('resultEmoji').innerText = currentVibe.emoji;
+                document.getElementById('resultTitle').innerText = currentVibe.title;
+                document.getElementById('resultDesc').innerText = currentVibe.desc;
+
+                initialState.classList.add('hidden');
+                resultState.classList.remove('hidden');
+
+                // Butonları güncelle
+                scanBtn.innerText = "Tekrar Tara";
+                scanBtn.disabled = false;
+                scanBtn.style.background = "#334155"; // Butonu gri yap
+                shareBtn.style.display = "block"; // Paylaş butonunu göster
+
+            }, 800); // 800ms gecikme (gerilim için)
+        }
+
+        function shareVibe() {
+            if (!currentVibe) return;
+
+            const text = `My Daily Orbit: ${currentVibe.title} ${currentVibe.emoji}\n\n"${currentVibe.desc}"\n\nCheck yours via Daily Orbit Frame! 🪐`;
+            const encodedText = encodeURIComponent(text);
+            
+            // Warpcast Compose URL'i oluştur
+            // Kullanıcıyı bu metinle yeni bir cast ekranına yönlendirir
+            const shareUrl = `https://warpcast.com/~/compose?text=${encodedText}`;
+            
+            // Farcaster SDK varsa SDK üzerinden aç, yoksa yeni sekmede aç
+            try {
+                if (window.farcaster && window.farcaster.actions) {
+                    window.farcaster.actions.openUrl(shareUrl);
+                } else {
+                    window.open(shareUrl, '_blank');
+                }
+            } catch (e) {
+                window.open(shareUrl, '_blank');
+            }
+        }
+
+        // SDK Yüklendiğinde Frame'i hazırla
+        window.onload = () => {
+            if (window.farcaster) {
+                window.farcaster.init().then(() => {
+                    console.log("Frame SDK initialized");
+                });
+            }
+        };
+    </script>
+</body>
+</html>
