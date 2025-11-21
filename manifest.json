@@ -1,1 +1,21 @@
-{"frame":{"name":"Daily Orbit","homeUrl":"https://yorunge-yzpk-8l6m2q4sb-ekrems-projects-97d7aa5b.vercel.app","iconUrl":"https://yorunge-yzpk-8l6m2q4sb-ekrems-projects-97d7aa5b.vercel.app/icon.png","version":"1","imageUrl":"https://yorunge-yzpk-8l6m2q4sb-ekrems-projects-97d7aa5b.vercel.app/image.png","subtitle":"Daily Orbit","webhookUrl":"https://yorunge-yzpk-8l6m2q4sb-ekrems-projects-97d7aa5b.vercel.app/api/webhook","description":"Don’t bother thinking about what to do today — I’ll tell you what to focus on!","splashImageUrl":"https://yorunge-yzpk-8l6m2q4sb-ekrems-projects-97d7aa5b.vercel.app/splash.png","primaryCategory":"finance","splashBackgroundColor":"#E6E6FA"},"accountAssociation":{"header":"eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ","payload":"eyJkb21haW4iOiJ5b3J1bmdlLXl6cGstOGw2bTJxNHNiLWVrcmVtcy1wcm9qZWN0cy05N2Q3YWE1Yi52ZXJjZWwuYXBwIn0","signature":"4clyTaNS2beSNTPF3Qh1qYm24Up+pTXhyAEPcBClTQljPnAeBFkwX4eIDj2aOnFJJ1uWO5j93USXmyVkTHkJixs="}
+{
+  "frame": {
+    "name": "Daily Orbit",
+    "version": "1",
+    "iconUrl": "https://imgur.com/a/BsjohJT",
+    "homeUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app",
+    "imageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/image.png",
+    "splashImageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/splash.png",
+    "splashBackgroundColor": "#4B0082",
+    "webhookUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "subtitle": "Daily Orbit",
+    "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
+    "primaryCategory": "utility",
+    "heroImageUrl": "https://imgur.com/a/BsjohJT"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
+    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLXl6cGstaGpxdHB1dHZ4LWVrcmVtcy1wcm9qZWN0cy05N2Q3YWE1Yi52ZXJjZWwuYXBwIn0",
+    "signature": "DP4KfFYnUCsMvntpSOpLe9UVU0gUVRvFMvR4zTF1kDAzgVP81M+DyRjB63YLHNuMeK9k0fdQzPH9D9IHCtr0qhw="
+  }
+}
