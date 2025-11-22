@@ -1,7 +1,7 @@
 {
   "miniapp": {
-    "name": "Daily Orbit",
     "version": "1",
+    "name": "Daily Orbit",
     "iconUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
     "homeUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app",
     "imageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
