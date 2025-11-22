@@ -1,25 +1,20 @@
 {
   "frame": {
-    "name": "Daily Ortbit",
+    "name": "Daily Orbit",
     "version": "1",
-    "iconUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/icon.png",
-    "homeUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app",
-    "imageUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/image.png",
-    "splashImageUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/splash.png",
+    "iconUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
+    "homeUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app",
+    "imageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
+    "splashImageUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app/splash.png",
     "splashBackgroundColor": "#E6E6FA",
-    "webhookUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
-    "subtitle": "Daily Ortbit",
+    "webhookUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "subtitle": "Daily Orbit",
     "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
-    "primaryCategory": "utility",
-    "tags": [
-      "idea",
-      "base",
-      "miniapp"
-    ]
+    "primaryCategory": "utility"
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
-    "payload": "eyJkb21haW4iOiJodHRwczovL3lvcnVuZ2UtZDhvcS1mZHR3amw5NDMtZWtyZW1zLXByb2plY3RzLTk3ZDdhYTViLnZlcmNlbC5hcHAifQ",
-    "signature": "YITzd69UQxXxy+0+Y+PPMAYvg9glvGSpGsWfRgIMiH1Avtu94d4M9zmy76BnHznhgE7DKOREFdaNBO8zYzeNrhw="
+    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLWt1NXA3ZzBqaS1la3JlbXMtcHJvamVjdHMtOTdkN2FhNWIudmVyY2VsLmFwcCJ9",
+    "signature": "vjjqWnC/N8qPHu5WcV3TM0M/bsCDGdPSvalDXpOsX4U9fcafqPjy6FTJ29v2RatNpb4mdsH/z3wStKcfTllEoRw="
   }
 }
