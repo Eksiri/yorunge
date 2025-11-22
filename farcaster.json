@@ -1,21 +1,25 @@
 {
   "frame": {
-    "name": "Daily Orbit",
-    "homeUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app",
-    "iconUrl": "https://imgur.com/a/BsjohJT",
+    "name": "Daily Ortbit",
     "version": "1",
-    "imageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/image.png",
-    "subtitle": "Daily Orbit",
-    "webhookUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "iconUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/icon.png",
+    "homeUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app",
+    "imageUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/image.png",
+    "splashImageUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/splash.png",
+    "splashBackgroundColor": "#E6E6FA",
+    "webhookUrl": "https://https://yorunge-d8oq-fdtwjl943-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "subtitle": "Daily Ortbit",
     "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
-    "heroImageUrl": "https://imgur.com/a/BsjohJT",
-    "splashImageUrl": "https://yorunge-yzpk-hjqtputvx-ekrems-projects-97d7aa5b.vercel.app/splash.png",
     "primaryCategory": "utility",
-    "splashBackgroundColor": "#4B0082"
+    "tags": [
+      "idea",
+      "base",
+      "miniapp"
+    ]
   },
   "accountAssociation": {
     "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
-    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLXl6cGstaGpxdHB1dHZ4LWVrcmVtcy1wcm9qZWN0cy05N2Q3YWE1Yi52ZXJjZWwuYXBwIn0",
-    "signature": "DP4KfFYnUCsMvntpSOpLe9UVU0gUVRvFMvR4zTF1kDAzgVP81M+DyRjB63YLHNuMeK9k0fdQzPH9D9IHCtr0qhw="
+    "payload": "eyJkb21haW4iOiJodHRwczovL3lvcnVuZ2UtZDhvcS1mZHR3amw5NDMtZWtyZW1zLXByb2plY3RzLTk3ZDdhYTViLnZlcmNlbC5hcHAifQ",
+    "signature": "YITzd69UQxXxy+0+Y+PPMAYvg9glvGSpGsWfRgIMiH1Avtu94d4M9zmy76BnHznhgE7DKOREFdaNBO8zYzeNrhw="
   }
 }
