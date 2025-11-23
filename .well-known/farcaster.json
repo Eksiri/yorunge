@@ -1,21 +1,28 @@
 {
   "miniapp": {
-    "version": "1",
+   "version": "1",
     "name": "Daily Orbit",
     "iconUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
-    "homeUrl": "https://yorunge-hd3u19b1f-ekrems-projects-97d7aa5b.vercel.app",
+    "homeUrl": "https://yorunge.vercel.app/",
     "imageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
-    "splashImageUrl": "https://yorunge-hd3u19b1f-ekrems-projects-97d7aa5b.vercel.app/splash.png",
-    "splashBackgroundColor": "#E6E6FA",
-    "webhookUrl": "https://yorunge-hd3u19b1f-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "buttonTitle": "Open Mini App",
+    "splashImageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/Gemini_Generated_Image_slix6pslix6pslix.png",
+    "splashBackgroundColor": "#957DAD",
     "subtitle": "Daily Orbit",
     "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
-    "primaryCategory": "utility"
+    "primaryCategory": "utility",
+    "tags": [
+      "base",
+      "astrology",
+      "miniapp"
+    ],
+    "ogTitle": "Click and find ",
+    "ogDescription": "Click and find out what you need to do",
+    "ogImageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/Gemini_Generated_Image_slix6pslix6pslix.png"
   },
- {
   "accountAssociation": {
     "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
-    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLWhkM3UxOWIxZi1la3JlbXMtcHJvamVjdHMtOTdkN2FhNWIudmVyY2VsLmFwcCJ9",
-    "signature": "FZNONoPVK75UmvWNRwws6Jrcj5WSkzh/OqNaHdAI2I9r07m04dSjXLZvkxShBZ4Dwow10CaXE2e0ObxEeKw+pBs="
+    "payload": "eyJkb21haW4iOiIifQ",
+    "signature": "jFS4oTrFDoI+UR95AqZPj+K1gkKkzt/AIfIaS1C3SDIv1pt0PsZPwu7bPJzmUM94myon5mJzqu6TFJHNt6BYnBs="
   }
 }
