@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Orbit - Farcaster Miniapp</title>
-    
-    <!-- GÜNCELLENEN KISIM: Farcaster Hosted Manifest Linki -->
+    <title>Daily Orbit</title>
+    <!-- Farcaster Manifest -->
     <link rel="manifest" href="/.well-known/farcaster.json">
     
     <!-- Google Fonts -->
@@ -17,7 +16,6 @@
             --accent: #8b5cf6;
             --text: #f8fafc;
             --secondary: #94a3b8;
-            --success: #10b981;
         }
 
         body {
@@ -74,7 +72,7 @@
             overflow: hidden;
         }
 
-        /* Background Glow Effect */
+        /* Background Glow */
         .orbit-card::before {
             content: '';
             position: absolute;
@@ -106,7 +104,6 @@
             font-weight: bold;
             color: #fff;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
         }
 
         .vibe-desc {
@@ -129,8 +126,6 @@
             cursor: pointer;
             transition: all 0.2s ease;
             margin-bottom: 12px;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-primary {
@@ -139,30 +134,13 @@
             box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.39);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
+        .btn-primary:active { transform: scale(0.98); }
 
         .btn-secondary {
             background: rgba(139, 92, 246, 0.1);
             border: 1px solid var(--accent);
             color: var(--accent);
-            display: none; /* Hidden initially */
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(139, 92, 246, 0.2);
-        }
-
-        .btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none !important;
+            display: none;
         }
 
         @keyframes float {
@@ -182,9 +160,7 @@
             animation: pulse 1.5s infinite ease-in-out;
         }
 
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -195,13 +171,11 @@
 
         <!-- Result Area -->
         <div class="orbit-card" id="cardArea">
-            <!-- Initial State -->
             <div id="initialState" class="content-wrapper">
                 <div class="scanning-icon">🪐</div>
                 <p style="margin-top: 15px; font-weight: 500;">System Ready</p>
             </div>
             
-            <!-- Result State -->
             <div id="resultState" class="content-wrapper hidden">
                 <div class="emoji-display" id="resultEmoji">🚀</div>
                 <div class="vibe-title" id="resultTitle">Builder Mode</div>
@@ -209,16 +183,16 @@
             </div>
         </div>
 
-        <!-- Action Buttons -->
+        <!-- Buttons -->
         <button class="btn btn-primary" id="scanBtn" onclick="scanVibe()">Scan My Orbit</button>
         <button class="btn btn-secondary" id="shareBtn" onclick="shareVibe()">Share on Warpcast</button>
     </div>
 
-    <!-- Farcaster Frame SDK -->
+    <!-- Farcaster SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@farcaster/frame-sdk/dist/index.min.js"></script>
 
     <script>
-        // Expanded Data Set
+        // Data
         const vibes = [
             { title: "Builder Mode", emoji: "🏗️", desc: "Silence the noise. Focus on shipping code today." },
             { title: "Degen Energy", emoji: "🔥", desc: "High risk, high reward. Ape into something new." },
@@ -229,78 +203,69 @@
             { title: "Void Gazer", emoji: "🌑", desc: "Deep thoughts only. Stare into the abyss." },
             { title: "Alpha Hunter", emoji: "🔭", desc: "Find the hidden gems before anyone else." },
             { title: "Meme Lord", emoji: "🤡", desc: "Make them laugh. One meme can change everything." },
-            { title: "Protocol Architect", emoji: "📐", desc: "Think big picture. Plan the next infrastructure." },
-            { title: "Community Lead", emoji: "❤️", desc: "Support others. Reply to casts with kindness." },
-            { title: "Governance Guru", emoji: "🗳️", desc: "Your vote matters. Participate in a DAO proposal." }
+            { title: "Protocol Architect", emoji: "📐", desc: "Think big picture. Plan the next infrastructure." }
         ];
 
         let currentVibe = null;
 
-        // Main Logic
         function scanVibe() {
-            const cardArea = document.getElementById('cardArea');
-            const initialState = document.getElementById('initialState');
-            const resultState = document.getElementById('resultState');
             const scanBtn = document.getElementById('scanBtn');
             const shareBtn = document.getElementById('shareBtn');
-
-            // Loading State
+            
             scanBtn.innerText = "Scanning Orbit...";
             scanBtn.disabled = true;
-            initialState.querySelector('p').innerText = "Aligning stars...";
+            document.getElementById('initialState').querySelector('p').innerText = "Aligning stars...";
 
             setTimeout(() => {
-                // Random Selection
                 const randomIndex = Math.floor(Math.random() * vibes.length);
                 currentVibe = vibes[randomIndex];
 
-                // Update UI
                 document.getElementById('resultEmoji').innerText = currentVibe.emoji;
                 document.getElementById('resultTitle').innerText = currentVibe.title;
                 document.getElementById('resultDesc').innerText = currentVibe.desc;
 
-                initialState.classList.add('hidden');
-                resultState.classList.remove('hidden');
+                document.getElementById('initialState').classList.add('hidden');
+                document.getElementById('resultState').classList.remove('hidden');
 
-                // Update Buttons
                 scanBtn.innerText = "Rescan Orbit";
                 scanBtn.disabled = false;
-                scanBtn.style.background = "#334155"; 
-                scanBtn.style.boxShadow = "none";
+                scanBtn.style.background = "#334155";
                 shareBtn.style.display = "block"; 
-
-            }, 1000); 
+            }, 1000);
         }
 
         function shareVibe() {
             if (!currentVibe) return;
-
             const text = `My Daily Orbit: ${currentVibe.title} ${currentVibe.emoji}\n\n"${currentVibe.desc}"\n\nCheck yours via Daily Orbit Frame! 🪐`;
             const encodedText = encodeURIComponent(text);
             const shareUrl = `https://warpcast.com/~/compose?text=${encodedText}`;
             
-            try {
-                if (window.farcaster && window.farcaster.actions) {
-                    window.farcaster.actions.openUrl(shareUrl);
-                } else {
-                    window.open(shareUrl, '_blank');
-                }
-            } catch (e) {
+            if (window.farcaster && window.farcaster.actions) {
+                window.farcaster.actions.openUrl(shareUrl);
+            } else {
                 window.open(shareUrl, '_blank');
             }
         }
 
-        window.onload = async () => {
-            if (window.farcaster) {
-                try {
-                    await window.farcaster.actions.ready();
-                    console.log("Farcaster Frame Ready signal sent.");
-                } catch (error) {
-                    console.error("Error signaling ready:", error);
+        // --- KRİTİK DÜZELTME: GÜÇLÜ READY SİNYALİ ---
+        window.onload = () => {
+            // SDK'nın yüklenmesini bekle (Retry Logic)
+            const checkSDK = setInterval(() => {
+                if (window.farcaster && window.farcaster.actions) {
+                    clearInterval(checkSDK); // SDK bulundu, döngüyü durdur
+                    
+                    // Ready sinyalini gönder
+                    window.farcaster.actions.ready();
+                    console.log("✅ Farcaster Ready Sinyali Gönderildi!");
                 }
-            } else {
-                console.log("Farcaster SDK not found (Running in browser mode?)");
-            }
+            }, 100); // Her 100 milisaniyede bir kontrol et
+
+            // 5 saniye sonra hala yüklenmediyse yine de bir kere dene (Fallback)
+            setTimeout(() => {
+                if (window.farcaster && window.farcaster.actions) {
+                    window.farcaster.actions.ready();
+                }
+            }, 5000);
         };
     </script>
 </body>
