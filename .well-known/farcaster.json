@@ -12,9 +12,11 @@
     "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
     "primaryCategory": "utility"
   },
+ {
   "accountAssociation": {
     "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
-    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLWt1NXA3ZzBqaS1la3JlbXMtcHJvamVjdHMtOTdkN2FhNWIudmVyY2VsLmFwcCJ9",
-    "signature": "vjjqWnC/N8qPHu5WcV3TM0M/bsCDGdPSvalDXpOsX4U9fcafqPjy6FTJ29v2RatNpb4mdsH/z3wStKcfTllEoRw="
+    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLWhkM3UxOWIxZi1la3JlbXMtcHJvamVjdHMtOTdkN2FhNWIudmVyY2VsLmFwcCJ9",
+    "signature": "FZNONoPVK75UmvWNRwws6Jrcj5WSkzh/OqNaHdAI2I9r07m04dSjXLZvkxShBZ4Dwow10CaXE2e0ObxEeKw+pBs="
   }
+}
 }
