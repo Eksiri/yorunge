@@ -1,0 +1,20 @@
+{
+  "miniapp": {
+    "version": "1",
+    "name": "Daily Orbit",
+    "iconUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
+    "homeUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app",
+    "imageUrl": "https://wujl7lswfkbrb6gg.public.blob.vercel-storage.com/logo.png",
+    "splashImageUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app/splash.png",
+    "splashBackgroundColor": "#E6E6FA",
+    "webhookUrl": "https://yorunge-ku5p7g0ji-ekrems-projects-97d7aa5b.vercel.app/api/webhook",
+    "subtitle": "Daily Orbit",
+    "description": "Don’t bother thinking about what to do today — I’ll tell you what to focus on!",
+    "primaryCategory": "utility"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjQxNDIyNiwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMzZDAyRDU2QTRmNEI0ZmE1NDljYjJDOUVlNjIxQjI3NUJkMjNhZTQifQ",
+    "payload": "eyJkb21haW4iOiJ5b3J1bmdlLWt1NXA3ZzBqaS1la3JlbXMtcHJvamVjdHMtOTdkN2FhNWIudmVyY2VsLmFwcCJ9",
+    "signature": "vjjqWnC/N8qPHu5WcV3TM0M/bsCDGdPSvalDXpOsX4U9fcafqPjy6FTJ29v2RatNpb4mdsH/z3wStKcfTllEoRw="
+  }
+}
