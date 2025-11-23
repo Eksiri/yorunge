@@ -203,7 +203,7 @@
             { title: "Void Gazer", emoji: "🌑", desc: "Deep thoughts only. Stare into the abyss." },
             { title: "Alpha Hunter", emoji: "🔭", desc: "Find the hidden gems before anyone else." },
             { title: "Meme Lord", emoji: "🤡", desc: "Make them laugh. One meme can change everything." },
-            { title: "Protocol Architect", emoji: "📐", desc: "Think big picture. Plan the next infrastructure." }
+            { title: "Protocol Architect", emoji: "🔮", desc: "Think big picture. Plan the next infrastructure." }
         ];
 
         let currentVibe = null;
@@ -240,33 +240,60 @@
             const encodedText = encodeURIComponent(text);
             const shareUrl = `https://warpcast.com/~/compose?text=${encodedText}`;
             
-            if (window.farcaster && window.farcaster.actions) {
-                window.farcaster.actions.openUrl(shareUrl);
+            if (window.sdk && window.sdk.actions) {
+                window.sdk.actions.openUrl(shareUrl);
             } else {
                 window.open(shareUrl, '_blank');
             }
         }
 
-        // --- KRİTİK DÜZELTME: GÜÇLÜ READY SİNYALİ ---
-        window.onload = () => {
-            // SDK'nın yüklenmesini bekle (Retry Logic)
-            const checkSDK = setInterval(() => {
-                if (window.farcaster && window.farcaster.actions) {
-                    clearInterval(checkSDK); // SDK bulundu, döngüyü durdur
-                    
-                    // Ready sinyalini gönder
-                    window.farcaster.actions.ready();
-                    console.log("✅ Farcaster Ready Sinyali Gönderildi!");
+        // ✅ DÜZELTİLMİŞ: SDK yüklenme kontrolü ve ready() çağrısı
+        (async function initializeFrame() {
+            try {
+                // SDK modülünü yükle
+                const sdk = await import('https://cdn.jsdelivr.net/npm/@farcaster/frame-sdk/dist/index.min.js');
+                window.sdk = sdk.default || sdk;
+                
+                // SDK hazır olana kadar bekle
+                let attempts = 0;
+                const maxAttempts = 50;
+                
+                const waitForSDK = () => {
+                    return new Promise((resolve, reject) => {
+                        const checkSDK = setInterval(() => {
+                            attempts++;
+                            
+                            if (window.sdk && window.sdk.actions && typeof window.sdk.actions.ready === 'function') {
+                                clearInterval(checkSDK);
+                                resolve();
+                            } else if (attempts >= maxAttempts) {
+                                clearInterval(checkSDK);
+                                reject(new Error('SDK yüklenemedi'));
+                            }
+                        }, 100);
+                    });
+                };
+                
+                await waitForSDK();
+                
+                // Ready sinyalini gönder
+                await window.sdk.actions.ready();
+                console.log('✅ Farcaster Frame hazır!');
+                
+            } catch (error) {
+                console.error('❌ Farcaster SDK yükleme hatası:', error);
+                
+                // Fallback: window.farcaster kullanmayı dene
+                if (window.farcaster && window.farcaster.actions && typeof window.farcaster.actions.ready === 'function') {
+                    try {
+                        await window.farcaster.actions.ready();
+                        console.log('✅ Fallback ile Frame hazır!');
+                    } catch (e) {
+                        console.error('❌ Fallback da başarısız:', e);
+                    }
                 }
-            }, 100); // Her 100 milisaniyede bir kontrol et
-
-            // 5 saniye sonra hala yüklenmediyse yine de bir kere dene (Fallback)
-            setTimeout(() => {
-                if (window.farcaster && window.farcaster.actions) {
-                    window.farcaster.actions.ready();
-                }
-            }, 5000);
-        };
+            }
+        })();
     </script>
 </body>
 </html>
